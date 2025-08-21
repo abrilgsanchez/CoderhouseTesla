@@ -1,0 +1,22 @@
+// Flexbox
+@mixin flex-center($gap: 0) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $gap;
+}
+
+// Grid
+@mixin grid-layout($cols, $gap: 1rem) {
+  display: grid;
+  grid-template-columns: $cols;
+  gap: $gap;
+}
+
+// Caja (para tarjetas, bloques, etc.)
+@mixin caja($bg, $padding: 1.5rem, $radius: 10px, $shadow: 0 4px 12px rgba(0, 0, 0, 0.1)) {
+  background-color: $bg;
+  padding: $padding;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}

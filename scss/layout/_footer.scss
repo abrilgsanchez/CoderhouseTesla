@@ -1,0 +1,9 @@
+// Footer
+footer {
+  background-color: $color-footer;
+  color: $color-footer-texto;
+
+  img {
+    width: 2rem; height: 2rem; object-fit: cover;
+  }
+}

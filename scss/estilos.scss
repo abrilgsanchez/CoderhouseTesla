@@ -1,0 +1,121 @@
+@import './utilities/variables';
+@import './utilities/mixins';
+@import './utilities/extend';
+@import './layout/main';
+@import './layout/header';
+@import './layout/footer';
+@import './mq/mq';
+
+// Estilos generales
+* { font-family: $fuente-principal; }
+
+
+nav ul {
+  @include flex-center(60px);
+  list-style: none;
+}
+
+@media (min-width: $bp-lg) {
+  .navbar-expand-lg .navbar-collapse {
+    @include flex-center(space-around);
+    flex-basis: auto;
+    display: flex !important;
+  }
+}
+
+
+
+// Novedades
+.novedades img { width: 100%; height: auto; }
+
+.novedades button {
+  @extend %boton;
+  width: 100%;
+  background-color: $color-principal;
+  color: $color-secundario;
+}
+
+// Modelos
+.modelos {
+  @include grid-layout(repeat(3, 1fr), 2rem);
+  padding: 2rem;
+  justify-items: center;
+}
+
+.modelos article {
+  @extend %tarjeta;
+  width: 100%;
+  max-width: 400px;
+
+  &:hover { transform: translateY(-5px); }
+}
+
+.modelos img {
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.modelos h3 { font-size: 1.3rem; margin: 0.5rem 0; }
+.modelos p { font-size: 0.95rem; color: #444; }
+
+// Quienes somos
+.h2-quienes-somos { color: $gris-oscuro; text-align: center; margin-bottom: 1rem; }
+.h3-quienes-somos { color: $gris-claro; margin-bottom: 0.8rem; }
+
+.quienes-somos-main { max-width: 1000px; margin: auto; font-family: $fuente-principal; }
+.p-intro { text-align: center; font-size: 1.1rem; margin-bottom: 3rem; }
+
+.grid-quienes-somos { @include grid-layout(1fr, 2rem); }
+.qs-bloque { @include caja(#f9f9f9, 1.5rem, 10px, 0 4px 12px rgba(0, 0, 0, 0.07)); }
+
+// Formulario
+form { color: $color-form; }
+
+form button {
+  @extend %boton;
+  background-color: $color-boton;
+  color: $color-boton-texto;
+}
+
+.reserva-main { max-width: 800px; margin: auto; text-align: center; }
+
+.formulario-grid {
+  @include grid-layout(1fr 2fr, 1rem 2rem);
+  align-items: center;
+  margin-bottom: 2rem;
+
+  input[type=text], select {
+    width: 100%;
+    padding: 0.5rem;
+  }
+
+  button {
+    @extend %boton;
+    grid-column: 1/-1;
+    background-color: $color-principal;
+    color: #f6f0f0;
+  }
+}
+
+.duracion { @include flex-center(1rem); }
+
+.info-reserva { @include caja($gris-fondo, 1.5rem, 10px, 0 4px 10px rgba(0, 0, 0, 0.1)); text-align: left; }
+
+
+
+// Responsive
+@media only screen and (max-width: $bp-md) {
+  nav ul { flex-direction: column; gap: 1rem; }
+
+  .modelos { grid-template-columns: 1fr; padding: 1rem; }
+  .formulario-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .duracion { flex-direction: column; gap: 0.5rem; }
+  .info-reserva { text-align: center; }
+  .grid-quienes-somos { grid-template-columns: 1fr; }
+
+  .novedades img, .cargador-img { width: 100%; }
+  .novedades button { width: 100%; }
+
+  footer img { width: 1.5rem; height: 1.5rem; }
+}
